@@ -18,14 +18,16 @@ with col1:
 planet_radius = st.number_input(
 "Planet Radius (Earth Radius)",
 min_value=0.1,
-value=1.0
+value=1.0,
+step=0.1
 )
 
 ```
 planet_mass = st.number_input(
     "Planet Mass (Earth Mass)",
     min_value=0.1,
-    value=1.0
+    value=1.0,
+    step=0.1
 )
 
 orbital_period = st.number_input(
@@ -46,7 +48,8 @@ value=5778
 star_luminosity = st.number_input(
     "Star Luminosity",
     min_value=0.1,
-    value=1.0
+    value=1.0,
+    step=0.1
 )
 ```
 
@@ -64,22 +67,22 @@ prediction, score = predict_habitability(
 st.subheader("Prediction Results")
 
 st.metric(
-    "Habitability Score",
-    f"{score}%"
+    label="Habitability Score",
+    value=f"{score}%"
 )
 
 if prediction == 1:
-    st.success("Potentially Habitable Planet")
+    st.success("✅ Potentially Habitable Planet")
 else:
-    st.error("Not Habitable")
+    st.error("❌ Not Habitable")
 
-st.progress(score / 100)
+st.progress(float(score) / 100)
 
 st.subheader("Planet Summary")
 
-st.write(f"Planet Radius: {planet_radius}")
-st.write(f"Planet Mass: {planet_mass}")
-st.write(f"Orbital Period: {orbital_period}")
-st.write(f"Star Temperature: {star_temperature}")
-st.write(f"Star Luminosity: {star_luminosity}")
+st.write(f"**Planet Radius:** {planet_radius}")
+st.write(f"**Planet Mass:** {planet_mass}")
+st.write(f"**Orbital Period:** {orbital_period}")
+st.write(f"**Star Temperature:** {star_temperature}")
+st.write(f"**Star Luminosity:** {star_luminosity}")
 ```
