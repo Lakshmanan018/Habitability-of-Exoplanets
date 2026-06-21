@@ -12,46 +12,45 @@ st.write(
 "Predict whether an exoplanet could support life based on planetary and stellar characteristics."
 )
 
-col1, col2 = st.columns(2)
-
-with col1:
-
-
-planet_radius = st.number_input(
+us = st.number_input(
     "Planet Radius (Earth Radius)",
     min_value=0.1,
     value=1.0
 )
+col1, col2 = st.columns(2)
 
-planet_mass = st.number_input(
-    "Planet Mass (Earth Mass)",
-    min_value=0.1,
-    value=1.0
-)
+with col1:
+    planet_radius = st.number_input(
+        "Planet Radius (Earth Radius)",
+        min_value=0.1,
+        value=1.0
+    )
 
-orbital_period = st.number_input(
-    "Orbital Period (Days)",
-    min_value=1,
-    value=365
-)
+    planet_mass = st.number_input(
+        "Planet Mass (Earth Mass)",
+        min_value=0.1,
+        value=1.0
+    )
 
+    orbital_period = st.number_input(
+        "Orbital Period (Days)",
+        min_value=1,
+        value=365
+    )
 
 with col2:
+    star_temperature = st.number_input(
+        "Star Temperature (Kelvin)",
+        min_value=1000,
+        value=5778
+    )
 
-
-star_temperature = st.number_input(
-    "Star Temperature (Kelvin)",
-    min_value=1000,
-    value=5778
-)
-
-star_luminosity = st.number_input(
-    "Star Luminosity",
-    min_value=0.1,
-    value=1.0
-)
-
-
+    star_luminosity = st.number_input(
+        "Star Luminosity",
+        min_value=0.1,
+        value=1.0
+    )
+    
 if st.button("Predict Habitability"):
 
 
